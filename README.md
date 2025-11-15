@@ -48,7 +48,11 @@ Easy to swap in another model (T5, Pegasus, LED, LongT5, etc.) by editing the ba
 - Clone the Repository
 - Install Dependencies using `pipenv install --python 3.13`
 - Activate the virtual environment with `pipenv shell`
-- Start the FastAPI backend: `astapi dev main.py --host=localhost --port=8000`
+- Create a `.env` file in the root directory and set the `API_URL` variable:
+  ```
+  API_URL=http://localhost:8000/summary
+  ```
+- Start the FastAPI backend: `fastapi dev main.py --host=localhost --port=8000`
 - In another terminal, start the Streamlit frontend: `streamlit run app.py`
 - Open your browser to `http://localhost:8501` to access the app
 

@@ -1,8 +1,10 @@
 import streamlit as st
 import requests
-from typing import List
+import os
+from dotenv import load_dotenv
 
-API_URL = "http://localhost:8000/summary/"
+load_dotenv()
+API_URL = os.environ.get('API_URL')
 
 st.set_page_config(page_title="AI Text Summarizer", layout="centered")
 st.title("AI-Powered Summary Assistant")
@@ -18,7 +20,7 @@ if submit:
     if not text_input or text_input.strip() == "":
         st.warning("Please paste the article text to summarize")
     else:
-        with st.spinner("Calling summarizer..."):
+        with st.spinner("Generating a beautiful summary..."):
             try:
                 resp = requests.post(API_URL, json={
                         "article": text_input,

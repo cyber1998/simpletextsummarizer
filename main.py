@@ -22,7 +22,6 @@ class ArticleSummary(BaseModel):
 async def get_summary(body: Article):
     summary = pipe(body.article, max_length=body.max_length, min_length=body.min_length, do_sample=False)
     returned_summary = summary[0]['summary_text']
-    print(len(returned_summary))
     return ArticleSummary(summary=returned_summary)
 
 
